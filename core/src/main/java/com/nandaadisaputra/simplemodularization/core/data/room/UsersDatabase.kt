@@ -1,11 +1,11 @@
-package com.nandaadisaputra.simplemodularization.data.room
+package com.nandaadisaputra.simplemodularization.core.data.room
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.nandaadisaputra.simplemodularization.data.model.Users
-import com.nandaadisaputra.simplemodularization.data.model.UsersDao
+import com.nandaadisaputra.simplemodularization.core.data.model.Users
+import com.nandaadisaputra.simplemodularization.core.data.model.UsersDao
 
 @Database(
     entities = [Users::class],

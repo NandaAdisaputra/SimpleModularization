@@ -1,9 +1,9 @@
-package com.nandaadisaputra.simplemodularization.injection
+package com.nandaadisaputra.simplemodularization.core.injection
 
 import android.content.Context
 import androidx.room.Room
-import com.nandaadisaputra.simplemodularization.data.model.UsersDao
-import com.nandaadisaputra.simplemodularization.data.room.UsersDatabase
+import com.nandaadisaputra.simplemodularization.core.data.model.UsersDao
+import com.nandaadisaputra.simplemodularization.core.data.room.UsersDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

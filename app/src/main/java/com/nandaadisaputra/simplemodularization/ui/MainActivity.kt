@@ -1,16 +1,16 @@
 package com.nandaadisaputra.simplemodularization.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.nandaadisaputra.simplemodularization.R
-import com.nandaadisaputra.simplemodularization.adapter.UsersAdapter
-import com.nandaadisaputra.simplemodularization.data.model.Users
+import com.nandaadisaputra.simplemodularization.core.adapter.UsersAdapter
+import com.nandaadisaputra.simplemodularization.core.data.model.Users
 import com.nandaadisaputra.simplemodularization.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 launch {
-                /*Kita panggil responseSave untuk menampilkan respon ketika data tersimpan */
+                    /*Kita panggil responseSave untuk menampilkan respon ketika data tersimpan */
                     mainViewModel.responseSave.collect { success ->
                         if (success) {
                             /*Katika berhasil tersimpan datanya akan muncul pesan Berhasil Menyimpan Data. */

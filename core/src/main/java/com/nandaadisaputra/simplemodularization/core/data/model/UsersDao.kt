@@ -1,4 +1,4 @@
-package com.nandaadisaputra.simplemodularization.data.model
+package com.nandaadisaputra.simplemodularization.core.data.model
 
 import androidx.room.Dao
 import androidx.room.Insert

@@ -1,4 +1,4 @@
-package com.nandaadisaputra.simplemodularization
+package com.nandaadisaputra.simplemodularization.core
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

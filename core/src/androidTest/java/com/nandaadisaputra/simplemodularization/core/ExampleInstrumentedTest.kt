@@ -1,4 +1,4 @@
-package com.nandaadisaputra.simplemodularization
+package com.nandaadisaputra.simplemodularization.core
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
@@ -17,6 +17,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.nandaadisaputra.simplemodularization", appContext.packageName)
+        assertEquals("com.nandaadisaputra.simplemodularization.core.test", appContext.packageName)
     }
 }

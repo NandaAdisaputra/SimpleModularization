@@ -2,8 +2,8 @@ package com.nandaadisaputra.simplemodularization.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.nandaadisaputra.simplemodularization.data.model.Users
-import com.nandaadisaputra.simplemodularization.data.model.UsersDao
+import com.nandaadisaputra.simplemodularization.core.data.model.Users
+import com.nandaadisaputra.simplemodularization.core.data.model.UsersDao
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow

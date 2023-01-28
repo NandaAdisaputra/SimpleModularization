@@ -3,7 +3,7 @@
     <data>
         <variable
             name="adapter"
-            type="com.nandaadisaputra.simplemodularization.adapter.UsersAdapter" />
+            type="com.nandaadisaputra.simplemodularization.core.adapter.UsersAdapter" />
 
         <variable
             name="activity"
