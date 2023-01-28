@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--TODO Tambahkan <layout><data></data></layout>
+karena akan menggunakan DataBinding-->
+<layout>
+    <data>
+        <variable
+            name="users"
+            type="com.nandaadisaputra.simplemodularization.data.model.Users" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='@{users.username}'
+            android:textSize="18sp"
+            tools:text="Nanda Adisaputra" />
+        <!--satuan ukuran teks gunakan satuan sp dan untuk satuan ukuran selain teks
+        seperti padding dan margin gunakan satuan dp-->
+
+        <!-- tools:text=""membuat teks yang kalian jadikan value dari child
+        akan bersifat dinamis jadi ketika dirunning tidak ada datanya maka
+        tidak akan menampilkan teks Nanda Adisaputra seperti pada contoh diatas-->
+
+    </LinearLayout>
+</layout>
