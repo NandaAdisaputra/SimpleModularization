@@ -56,33 +56,27 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun observe() {
+    private fun observe() {
         /*Karena menggunakan Coroutines kita dapat memanggil lifecycleScope.launch */
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 launch {
                     /*panggil variabel user dari viewmodel yang isinya perintah menampilkan data*/
-                    mainViewModel.users.collect { username ->
+                    viewModel.users.collect { username ->
                         /*Pada bagian ini digunakan untuk menampilkan data */
                         adapter.submitList(username)
                     }
-                }
-            }
-        }
-        /*Kita buat juga untuk memberi respon ketika data tersimpan */
-        lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                launch {
-                /*Kita panggil responseSave untuk menampilkan respon ketika data tersimpan */
-                    mainViewModel.responseSave.collect { success ->
+                    viewModel.responseSave.collect { success ->
                         if (success) {
                             /*Katika berhasil tersimpan datanya akan muncul pesan Berhasil Menyimpan Data. */
-                            Toast.makeText(this@MainActivity, "Berhasil Menyimpan Data.", Toast.LENGTH_SHORT).show()
+                           Toast.makeText(this@MainActivity, "Berhasil Menyimpan Data.", Toast.LENGTH_SHORT).show()
                         }
                     }
                 }
             }
         }
     }
+
     fun saveUsername() {
         /*Apabila inputan kosong / tidak ada inputan */
         if (usernameStudent.isEmpty()) {
