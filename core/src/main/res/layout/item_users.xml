@@ -5,7 +5,7 @@ karena akan menggunakan DataBinding-->
     <data>
         <variable
             name="users"
-            type="com.nandaadisaputra.simplemodularization.data.model.Users" />
+            type="com.nandaadisaputra.simplemodularization.core.data.model.Users" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"

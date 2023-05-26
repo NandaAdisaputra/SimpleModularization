@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--TODO Tambahkan <layout><data></data></layout>
+karena akan menggunakan DataBinding-->
+<layout>
+
+    <data>
+
+        <variable
+            name="activity"
+            type="com.nandaadisaputra.simplemodularization.ui.detail.DetailActivity" />
+
+        <variable
+            name="users"
+            type="com.nandaadisaputra.simplemodularization.core.data.model.Users" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.detail.DetailActivity">
+
+        <TextView
+            android:id="@+id/tv_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="username"
+            android:padding="16dp"
+            android:text='@{users.username}'
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick='@{() -> activity.updateUsername()}'
+            android:text="@string/update"
+            app:layout_constraintEnd_toEndOf="@id/btn_delete"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_username" />
+
+        <Button
+            android:id="@+id/btn_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick='@{() -> activity.deleteUsername()}'
+            android:text="@string/delete"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/btn_update"
+            app:layout_constraintTop_toBottomOf="@id/tv_username" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">SimpleModularization</string>
-    <!-- Tambahkan Resource String berikut ini -->
     <string name="username">username</string>
     <string name="save">Save</string>
+    <!-- Tambahkan Resource String berikut ini -->
+    <string name="delete">Delete</string>
+    <string name="update">Update</string>
 </resources>

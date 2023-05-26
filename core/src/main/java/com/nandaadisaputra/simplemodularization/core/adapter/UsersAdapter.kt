@@ -1,4 +1,4 @@
-package com.nandaadisaputra.simplemodularization.adapter
+package com.nandaadisaputra.simplemodularization.core.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -7,9 +7,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.nandaadisaputra.simplemodularization.R
-import com.nandaadisaputra.simplemodularization.data.model.Users
-import com.nandaadisaputra.simplemodularization.databinding.ItemUsersBinding
+import com.nandaadisaputra.simplemodularization.core.R
+import com.nandaadisaputra.simplemodularization.core.data.model.Users
+import com.nandaadisaputra.simplemodularization.core.databinding.ItemUsersBinding
 
 class UsersAdapter: ListAdapter<Users, UsersAdapter.ItemViewHolder>(DiffUtilCallback()) {
 

@@ -1,5 +1,6 @@
-package com.nandaadisaputra.simplemodularization.ui
+package com.nandaadisaputra.simplemodularization.ui.home
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -9,9 +10,11 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.nandaadisaputra.simplemodularization.R
-import com.nandaadisaputra.simplemodularization.adapter.UsersAdapter
-import com.nandaadisaputra.simplemodularization.data.model.Users
+import com.nandaadisaputra.simplemodularization.core.adapter.UsersAdapter
+import com.nandaadisaputra.simplemodularization.core.data.constant.Const
+import com.nandaadisaputra.simplemodularization.core.data.model.Users
 import com.nandaadisaputra.simplemodularization.databinding.ActivityMainBinding
+import com.nandaadisaputra.simplemodularization.ui.detail.DetailActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -48,40 +51,43 @@ class MainActivity : AppCompatActivity() {
         /*Ketika salah satu item di List diklik akan memunculkan aksi*/
         adapter.setOnClickItem { name ->
             /*Disini Saya kasih aksi memunculkan Toast*/
-            /*Kalian bisa menambahkan sendiri Intent ke Detail Activity dibagian ini*/
             Toast.makeText(this, "Ini namanya ${name.username}", Toast.LENGTH_SHORT).show()
+            /*Agar dapat berpindah ke DetailActivity.kt ketika salah satu item diklik
+             maka Kita perlu tambahkan Intent seperti pada dibawah ini*/
+            val detailIntent = Intent(this, DetailActivity::class.java).apply {
+                putExtra(Const.ID.ID_USERNAME, name.id)
+            }
+            startActivity(detailIntent)
         }
         /*Jangan lupa setelah deklarasi di inisialisasi adapter yak*/
         binding.adapter = adapter
     }
 
     private fun observe() {
-    private fun observe() {
         /*Karena menggunakan Coroutines kita dapat memanggil lifecycleScope.launch */
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 launch {
                     /*panggil variabel user dari viewmodel yang isinya perintah menampilkan data*/
-                    viewModel.users.collect { username ->
+                    mainViewModel.users.collect { username ->
                         /*Pada bagian ini digunakan untuk menampilkan data */
                         adapter.submitList(username)
                     }
-                    viewModel.responseSave.collect { success ->
+                    mainViewModel.responseSave.collect { success ->
                         if (success) {
                             /*Katika berhasil tersimpan datanya akan muncul pesan Berhasil Menyimpan Data. */
-                           Toast.makeText(this@MainActivity, "Berhasil Menyimpan Data.", Toast.LENGTH_SHORT).show()
+                           Toast.makeText(this@MainActivity, Const.TOAST.SAVE, Toast.LENGTH_SHORT).show()
                         }
                     }
                 }
             }
         }
     }
-
     fun saveUsername() {
         /*Apabila inputan kosong / tidak ada inputan */
         if (usernameStudent.isEmpty()) {
             /*Akan menampilan pesan Form Masih Kosong Lur. */
-            Toast.makeText(this, "Form Masih Kosong Lur.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, Const.VALIDATION.EMPTY, Toast.LENGTH_SHORT).show()
             return
         }
         /*Kita inisialisasi variabel newUsername isinya adalah class Users*/

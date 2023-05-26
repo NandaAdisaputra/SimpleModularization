@@ -1,28 +1,26 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     /* tambahkan plugin dibawah ini */
     id 'com.google.dagger.hilt.android'
     id 'kotlin-kapt'
-/* karena di module app tidak butuh kotlin-parcelize jadi Saya hapus disini, karena yang pakai cuma module core
-karena nanti untuk package data,adapter dan injection akan Kita pindahkan ke package core di module core*/
+    id 'kotlin-parcelize'
 }
 //TODO Tambahkan source code berikut ini//
 apply from: '../shared_dependencies.gradle'
 
 android {
-    namespace 'com.nandaadisaputra.simplemodularization'
+    namespace 'com.nandaadisaputra.simplemodularization.core'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.nandaadisaputra.simplemodularization"
         minSdk 23
         targetSdk 33
-        versionCode 1
-        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -49,7 +47,11 @@ android {
 dependencies {
     //TODO Tambahkan source code berikut ini//
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation project(":core")
+
+    implementation 'androidx.core:core-ktx:1.10.1'
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'com.google.android.material:material:1.9.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }
