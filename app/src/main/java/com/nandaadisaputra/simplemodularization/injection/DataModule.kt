@@ -14,12 +14,8 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 class DataModule {
-    @Singleton
     @Provides
-    fun provideDatabase(@ApplicationContext context: Context): UsersDatabase = Room.databaseBuilder(
-        context,
-        UsersDatabase::class.java, "Users_Database.db"
-    ).fallbackToDestructiveMigration().build()
+    fun provideAppDatabase(@ApplicationContext context: Context) = UsersDatabase.getInstance(context)
 
     @Provides
     fun provideUsersDao(database: UsersDatabase): UsersDao = database.userDao()
