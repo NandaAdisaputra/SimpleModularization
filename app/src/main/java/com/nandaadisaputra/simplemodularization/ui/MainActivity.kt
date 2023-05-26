@@ -54,19 +54,17 @@ class MainActivity : AppCompatActivity() {
         /*Jangan lupa setelah deklarasi di inisialisasi adapter yak*/
         binding.adapter = adapter
     }
-
-    private fun observe() {
     private fun observe() {
         /*Karena menggunakan Coroutines kita dapat memanggil lifecycleScope.launch */
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 launch {
                     /*panggil variabel user dari viewmodel yang isinya perintah menampilkan data*/
-                    viewModel.users.collect { username ->
+                    mainViewModel.users.collect { username ->
                         /*Pada bagian ini digunakan untuk menampilkan data */
                         adapter.submitList(username)
                     }
-                    viewModel.responseSave.collect { success ->
+                   mainViewModel.responseSave.collect { success ->
                         if (success) {
                             /*Katika berhasil tersimpan datanya akan muncul pesan Berhasil Menyimpan Data. */
                            Toast.makeText(this@MainActivity, "Berhasil Menyimpan Data.", Toast.LENGTH_SHORT).show()
