@@ -11,6 +11,7 @@ Pada Aplikasi ini telah menerapkan
 4. Room Database
 5. Data Binding
 6. Corountines
+7. Recyclerview
 
 Hasil Running nya : <a href='https://youtube.com/shorts/zODqOl4s2oc?feature=share/'>Lihat Hasil Running Aplikasinya</a> 
 
