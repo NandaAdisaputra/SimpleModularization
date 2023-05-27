@@ -7,7 +7,7 @@ Berikut untuk panduan tutorialnya <a href='https://nandaadisaputra18.medium.com/
 3. Branch Part2_Modularization -> Lanjutan part 1 dengan tambahan halaman detail item, edit, dan delete
 4. Branch Part3_CoreAndroid -> Modifikasi code pada part 2 untuk menjadi lebih ringkas dengan Android Core Crocodic
 
-Pada Aplikasi ini telah menerapkan
+Pada Study Case Aplikasi ini telah menerapkan
 1. Dependency Injection Hilt
 2. MVVM ( Model View ViewModel )
 3. Modularization
