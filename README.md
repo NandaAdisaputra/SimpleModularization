@@ -2,7 +2,10 @@
 **Silahkan dapat dipelajari dan dipraktekan ya**
 Berikut untuk panduan tutorialnya <a href='https://nandaadisaputra18.medium.com/teknik-menggunakan-dependency-injection-hilt-dan-modularization-pada-aplikasi-android-9181628fe91c/'>Panduan Belajar</a>
 
-Untuk yang sudah menggunakan Modularisasi ada di branch Modularisasi pada Repository ini
+Branch Master -> Sudah pakai DI Hilt tapi belum di Modularization
+Branch Part1_Modularization -> Hanya sampai Create
+Branch Part2_Modularization -> Lanjutan part 1 dengan tambahan halaman detail item, edit, dan delete
+Branch Part3_CoreAndroid -> Modifikasi code pada part 2 untuk menjadi lebih ringkas dengan Android Core Crocodic
 
 Pada Aplikasi ini telah menerapkan
 1. Dependency Injection Hilt
@@ -12,6 +15,3 @@ Pada Aplikasi ini telah menerapkan
 5. Data Binding
 6. Corountines
 7. Recyclerview
-
-Hasil Running nya : <a href='https://youtube.com/shorts/zODqOl4s2oc?feature=share/'>Lihat Hasil Running Aplikasinya</a> 
-
