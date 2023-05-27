@@ -4,6 +4,9 @@ plugins {
     /* tambahkan plugin dibawah ini */
     id 'com.google.dagger.hilt.android'
     id 'kotlin-kapt'
+    /* pada part 3 tambahkan plugin dibawah ini */
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
 /* karena di module app tidak butuh kotlin-parcelize jadi Saya hapus disini, karena yang pakai cuma module core
 karena nanti untuk package data,adapter dan injection akan Kita pindahkan ke package core di module core*/
 }

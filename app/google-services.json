@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "361000608342",
+    "project_id": "latihan-27222",
+    "storage_bucket": "latihan-27222.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:361000608342:android:f2437443c95eed386511f7",
+        "android_client_info": {
+          "package_name": "com.nandaadisaputra.simplemodularization"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWD164cMogeNntQRbf_6LFnOYUo22ZvxM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

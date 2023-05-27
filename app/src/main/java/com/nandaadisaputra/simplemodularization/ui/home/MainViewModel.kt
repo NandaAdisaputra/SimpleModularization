@@ -1,7 +1,7 @@
 package com.nandaadisaputra.simplemodularization.ui.home
 
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.nandaadisaputra.simplemodularization.base.viewmodel.BaseViewModel
 import com.nandaadisaputra.simplemodularization.core.data.model.Users
 import com.nandaadisaputra.simplemodularization.core.data.model.UsersDao
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -14,7 +14,8 @@ import javax.inject.Inject
 /*Karena menggunakan DI Hilt maka Kita wajib menambahkan anotasi @HiltViewModel*/
 
 @HiltViewModel
-class MainViewModel @Inject constructor(private val nameDao: UsersDao): ViewModel() {
+//class MainViewModel @Inject constructor(private val nameDao: UsersDao): ViewModel(){
+class MainViewModel @Inject constructor(private val nameDao: UsersDao): BaseViewModel() {
     /*Kita berikan isi variabel users dengan perintah mengambil data*/
     /*Karena nilainya tetap tidak berubah ubah value nya maka kita pakai val bukan var*/
     val users = nameDao.getAllUsername()

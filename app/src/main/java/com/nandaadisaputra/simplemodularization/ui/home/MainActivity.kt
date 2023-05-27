@@ -9,7 +9,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.crocodic.core.extension.openActivity
+import com.crocodic.core.extension.tos
 import com.nandaadisaputra.simplemodularization.R
+import com.nandaadisaputra.simplemodularization.base.activity.BaseActivity
 import com.nandaadisaputra.simplemodularization.core.adapter.UsersAdapter
 import com.nandaadisaputra.simplemodularization.core.data.constant.Const
 import com.nandaadisaputra.simplemodularization.core.data.model.Users
@@ -21,13 +24,14 @@ import kotlinx.coroutines.launch
 /*Karena menggunakan DI Hilt maka Kita wajib menambahkan anotasi @AndroidEntryPoint*/
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
-    /*Kita deklarasikan mainViewModel terlebih dahulu*/
-    private val mainViewModel: MainViewModel by viewModels()
-    /*Kita deklarasikan juga binding yang akan Kita gunakan*/
-    private val binding: ActivityMainBinding by lazy {
-        DataBindingUtil.setContentView(this, R.layout.activity_main)
-    }
+//class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.activity_main) {
+//    /*Kita deklarasikan mainViewModel terlebih dahulu*/
+//    private val mainViewModel: MainViewModel by viewModels()
+//    /*Kita deklarasikan juga binding yang akan Kita gunakan*/
+//    private val binding: ActivityMainBinding by lazy {
+//        DataBindingUtil.setContentView(this, R.layout.activity_main)
+//    }
     /*Berikutnya deklarasikan juga adapternya*/
     private val adapter = UsersAdapter()
     /*Jangan lupa deklarasikan usernameStudent*/
@@ -51,13 +55,17 @@ class MainActivity : AppCompatActivity() {
         /*Ketika salah satu item di List diklik akan memunculkan aksi*/
         adapter.setOnClickItem { name ->
             /*Disini Saya kasih aksi memunculkan Toast*/
-            Toast.makeText(this, "Ini namanya ${name.username}", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(this, "Ini namanya ${name.username}", Toast.LENGTH_SHORT).show()
+            tos("Ini namanya ${name.username}")
             /*Agar dapat berpindah ke DetailActivity.kt ketika salah satu item diklik
              maka Kita perlu tambahkan Intent seperti pada dibawah ini*/
-            val detailIntent = Intent(this, DetailActivity::class.java).apply {
+//            val detailIntent = Intent(this, DetailActivity::class.java).apply {
+//                putExtra(Const.ID.ID_USERNAME, name.id)
+//            }
+//            startActivity(detailIntent)
+            openActivity<DetailActivity> {
                 putExtra(Const.ID.ID_USERNAME, name.id)
             }
-            startActivity(detailIntent)
         }
         /*Jangan lupa setelah deklarasi di inisialisasi adapter yak*/
         binding.adapter = adapter
@@ -69,14 +77,17 @@ class MainActivity : AppCompatActivity() {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 launch {
                     /*panggil variabel user dari viewmodel yang isinya perintah menampilkan data*/
-                    mainViewModel.users.collect { username ->
+//                    mainViewModel.users.collect { username ->
+                    viewModel.users.collect { username ->
                         /*Pada bagian ini digunakan untuk menampilkan data */
                         adapter.submitList(username)
                     }
-                    mainViewModel.responseSave.collect { success ->
+//                    mainViewModel.responseSave.collect { success ->
+                    viewModel.responseSave.collect { success ->
                         if (success) {
                             /*Katika berhasil tersimpan datanya akan muncul pesan Berhasil Menyimpan Data. */
-                           Toast.makeText(this@MainActivity, Const.TOAST.SAVE, Toast.LENGTH_SHORT).show()
+//                           Toast.makeText(this@MainActivity, Const.TOAST.SAVE, Toast.LENGTH_SHORT).show()
+                            tos(Const.TOAST.SAVE)
                         }
                     }
                 }
@@ -87,12 +98,14 @@ class MainActivity : AppCompatActivity() {
         /*Apabila inputan kosong / tidak ada inputan */
         if (usernameStudent.isEmpty()) {
             /*Akan menampilan pesan Form Masih Kosong Lur. */
-            Toast.makeText(this, Const.VALIDATION.EMPTY, Toast.LENGTH_SHORT).show()
+//            Toast.makeText(this, Const.VALIDATION.EMPTY, Toast.LENGTH_SHORT).show()
+            tos(Const.VALIDATION.EMPTY)
             return
         }
         /*Kita inisialisasi variabel newUsername isinya adalah class Users*/
         val newUsername = Users(username = usernameStudent)
         /*Kita panggil addUsers untuk menyimpan data ke tabel Users*/
-        mainViewModel.addUsers(newUsername)
+//        mainViewModel.addUsers(newUsername)
+        viewModel.addUsers(newUsername)
     }
 }

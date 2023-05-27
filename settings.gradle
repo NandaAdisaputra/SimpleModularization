@@ -10,6 +10,8 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        /* tambahkan jitpack.io */
+        maven { url "https://jitpack.io" }
     }
 }
 rootProject.name = "SimpleModularization"
